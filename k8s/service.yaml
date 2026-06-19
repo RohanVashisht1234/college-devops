@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: medgenome-api
+  namespace: medgenome
+  labels:
+    app: medgenome-api
+spec:
+  type: ClusterIP
+  selector:
+    app: medgenome-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8000

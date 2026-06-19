@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: medgenome-config
+  namespace: medgenome
+data:
+  APP_ENV: "production"
+  DATA_REGION: "global"

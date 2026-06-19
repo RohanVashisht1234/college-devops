@@ -1,0 +1,26 @@
+{
+  "title": "MedGenome Platform",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "10s",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "HTTP Requests",
+      "gridPos": { "x": 0, "y": 0, "w": 8, "h": 5 },
+      "targets": [{ "expr": "sum(medgenome_http_requests_total)", "refId": "A" }]
+    },
+    {
+      "type": "stat",
+      "title": "Active Jobs",
+      "gridPos": { "x": 8, "y": 0, "w": 8, "h": 5 },
+      "targets": [{ "expr": "medgenome_active_jobs", "refId": "A" }]
+    },
+    {
+      "type": "stat",
+      "title": "Dataset PB",
+      "gridPos": { "x": 16, "y": 0, "w": 8, "h": 5 },
+      "targets": [{ "expr": "medgenome_dataset_petabytes", "refId": "A" }]
+    }
+  ]
+}
