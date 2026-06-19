@@ -6,7 +6,7 @@ cd "$ROOT_DIR"
 
 APP_PORT=8000
 PROMETHEUS_URL="http://localhost:9090"
-GRAFANA_URL="http://localhost:3000"
+GRAFANA_URL="http://localhost:3001"
 KIBANA_URL="http://localhost:5600"
 VAULT_URL="http://localhost:8200"
 APP_URL="http://localhost:${APP_PORT}"
@@ -64,6 +64,14 @@ if [ ! -d .venv ]; then
   python3 -m venv .venv
 fi
 .venv/bin/pip install -r requirements.txt
+
+log "Checking port availability"
+PORTS=(3001 9090 9200 5600 8200)
+for port in "${PORTS[@]}"; do
+  if lsof -ti tcp:"$port" >/dev/null 2>&1; then
+    log "WARNING: Port $port is already in use by PID $(lsof -ti tcp:$port | head -1)"
+  fi
+done
 
 log "Starting monitoring stack: Prometheus and Grafana"
 docker-compose -f monitoring/docker-compose.yml up -d

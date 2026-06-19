@@ -35,7 +35,7 @@ password: admin
 | Kubernetes app | `http://localhost:8800` | App exposed by Kubernetes port-forward |
 | Jenkins | `http://localhost:8080` | CI/CD pipeline UI |
 | Prometheus | `http://localhost:9090` | Metrics scraping and query UI |
-| Grafana | `http://localhost:3000` | Metrics dashboards |
+| Grafana | `http://localhost:3001` | Metrics dashboards |
 | Elasticsearch | `http://localhost:9200` | Log storage/search API |
 | Logstash TCP input | `localhost:5000` | Structured JSON log input |
 | Logstash Beats input | `localhost:5044` | Beats-compatible log input |
@@ -108,7 +108,7 @@ http://localhost:8000
 | Kubernetes app | `8800` | Exposes the Kubernetes Service to the local browser | `kubectl -n medgenome port-forward service/medgenome-api 8800:80` |
 | Jenkins | `8080` | Automates test, Docker build, and Kubernetes deploy | `brew services start jenkins-lts` |
 | Prometheus | `9090` | Scrapes and stores app metrics | `docker-compose -f monitoring/docker-compose.yml up -d` |
-| Grafana | `3000` | Visualizes Prometheus metrics | `docker-compose -f monitoring/docker-compose.yml up -d` |
+| Grafana | `3001` | Visualizes Prometheus metrics | `docker-compose -f monitoring/docker-compose.yml up -d` |
 | Elasticsearch | `9200` | Stores indexed logs | `docker-compose -f elk/docker-compose.yml up -d` |
 | Logstash | `5000` | Receives structured JSON logs and forwards them to Elasticsearch | `docker-compose -f elk/docker-compose.yml up -d` |
 | Kibana | `5600` | Searches and visualizes Elasticsearch logs | `docker-compose -f elk/docker-compose.yml up -d` |
@@ -243,7 +243,7 @@ Start:
 ```bash
 docker-compose -f monitoring/docker-compose.yml up -d
 open http://localhost:9090
-open http://localhost:3000
+open http://localhost:3001
 ```
 
 Grafana login:
@@ -447,7 +447,7 @@ open http://localhost:8000/docs
 screencapture -x screenshots/02-api-docs.png
 open http://localhost:9090
 screencapture -x screenshots/03-prometheus.png
-open http://localhost:3000
+open http://localhost:3001
 screencapture -x screenshots/04-grafana.png
 open http://localhost:5600
 screencapture -x screenshots/05-kibana.png
