@@ -1,5 +1,8 @@
 # Project MedGenome - Global Genomics Research Platform
 
+## System Design
+![System Design](./screenshots/system_design.png)
+
 Project MedGenome is a small working business application plus a complete DevOps lifecycle around it. The application represents a genomics research operations portal for precision medicine, disease research, and pharmaceutical workloads.
 
 The app is intentionally demo-sized, but it shows the full flow: users log in, upload genomic files, see the actual uploaded data size, track analysis workloads, expose APIs, emit Prometheus metrics, run through Docker/Jenkins/Kubernetes, and connect to monitoring, logging, Vault, Terraform, and disaster recovery documentation.
@@ -463,3 +466,20 @@ docker-compose -f vault/docker-compose.yml down
 docker rm -f medgenome-platform
 brew services stop jenkins-lts
 ```
+
+# Screenshots
+
+## Dashboard
+![Dashboard](./screenshots/dashboard.png)
+
+## Healthz
+![Healthz](./screenshots/healthz.png)
+
+## Jenkins
+![Jenkins](./screenshots/jenkins.png)
+
+## Login Page
+![Login Page](./screenshots/login_page.png)
+
+## Metrics
+![Metrics](./screenshots/metrics.png)
